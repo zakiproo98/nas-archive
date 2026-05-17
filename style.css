@@ -1,0 +1,289 @@
+/* ==========================================================================
+   CSS VARIABLES & THEMING
+   ========================================================================== */
+:root {
+    /* Default Light Mode */
+    --color-bg-body: #f7f7f7;
+    --color-bg-frame: #ffffff;
+    --color-text-main: #222222;
+    --color-text-muted: #888888;
+    --color-border: #eaeaea;
+
+    /* Typography */
+    --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    
+    /* Layout */
+    --frame-margin: 16px;
+    --frame-padding: 24px;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --color-bg-body: #0a0a0a;
+    --color-bg-frame: #121212;
+    --color-text-main: #eeeeee;
+    --color-text-muted: #777777;
+    --color-border: #2a2a2a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-mono);
+    color: var(--color-text-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode image softening */
+body.dark-mode img {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   MAIN FRAME LAYOUT
+   ========================================================================== */
+.frame {
+    position: relative;
+    width: calc(100vw - (var(--frame-margin) * 2));
+    height: calc(100vh - (var(--frame-margin) * 2));
+    background-color: var(--color-bg-frame);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ==========================================================================
+   FIXED CORNER LABELS & BUTTONS
+   ========================================================================== */
+.label {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 50;
+    pointer-events: none;
+    color: var(--color-text-main);
+}
+
+.theme-toggle {
+    pointer-events: auto; /* Allows clicking */
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--color-text-muted);
+}
+
+.top-left     { top: var(--frame-padding); left: var(--frame-padding); }
+.top-right    { top: var(--frame-padding); right: var(--frame-padding); text-align: right; }
+.bottom-left  { bottom: var(--frame-padding); left: var(--frame-padding); }
+.bottom-right { bottom: var(--frame-padding); right: var(--frame-padding); text-align: right; }
+
+/* ==========================================================================
+   SCROLLABLE CENTRAL CONTENT
+   ========================================================================== */
+.content-scroll {
+    position: absolute;
+    top: calc(var(--frame-padding) + 30px);
+    bottom: calc(var(--frame-padding) + 30px);
+    left: 4%;
+    right: 4%;
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.content-scroll::-webkit-scrollbar {
+    display: none; 
+}
+
+/* ==========================================================================
+   DYNAMIC PROJECT SECTIONS
+   ========================================================================== */
+.project-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    margin-bottom: 15vh;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 900px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 70vh; 
+    object-fit: contain;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+
+.metadata-container {
+    margin-top: 24px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.metadata-caption {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.metadata-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.metadata-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    margin-top: 12px;
+}
+
+/* ==========================================================================
+   CV / PROFILE SECTION
+   ========================================================================== */
+.cv-section {
+    max-width: 900px;
+    margin: 10vh auto;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+}
+
+/* Left side elements */
+.profile-photo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(100%);
+    margin-bottom: 24px;
+    border: 1px solid var(--color-border);
+}
+
+.profile-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+
+.profile-bio {
+    margin-bottom: 24px;
+    color: var(--color-text-muted);
+}
+
+/* Minimalist Links */
+.contact-links {
+    line-height: 2;
+}
+
+.contact-links a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-links a:hover {
+    color: var(--color-text-muted);
+}
+
+/* Right side elements */
+.cv-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.cv-block h3 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+
+.cv-block p {
+    margin: 0 0 2px 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .cv-section {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --frame-margin: 8px;
+        --frame-padding: 16px;
+    }
+
+    .label { font-size: 10px; }
+
+    .content-scroll {
+        top: calc(var(--frame-padding) + 24px);
+        bottom: calc(var(--frame-padding) + 24px);
+        left: 20px;
+        right: 20px;
+    }
+
+    .project-section {
+        min-height: auto;
+        margin-bottom: 80px;
+    }
+
+    .image-wrapper img { max-height: 50vh; }
+    
+    .cv-right { grid-template-columns: 1fr; }
+}
