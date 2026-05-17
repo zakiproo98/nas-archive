@@ -26,12 +26,12 @@ const projects = [
     {
         projectNumber: "PROJECT 003",
         title: "Archival Interface",
-        subtitle: "UI/UX / System Design",
-        year: "2025",
+        subtitle: "Photography",
+        year: "Apr 5, 2026",
         category: "Digital",
         image: "assets/projects/project-03/image-01.jpg", 
-        caption: "Interface Grid — UI/UX / 2025",
-        description: "Designing a modular storage system for digital assets and typographies."
+        caption: "3024 x 3024, 1/2801 secondes",
+        description: " Designing a modular storage system for digital assets and typographies."
     }
 ];
 
