@@ -5,10 +5,10 @@
 const projects = [
     {
         projectNumber: "PROJECT 001",
-        title: "Untitled Visual Study",
-        subtitle: "Photography / Tangier",
+        title: "The Moroccan O",
+        subtitle: "Tangier, Morocco",
         year: "2026",
-        category: "Photography",
+        category: "Symbol",
         image: "assets/projects/project-01/image-01.jpg", 
         caption: "Tangier Study — Photography / 2026",
         description: "An initial exploration of structural light and shadow within urban environments."
